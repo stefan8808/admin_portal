@@ -10,7 +10,10 @@ use Illuminate\Support\Str;
 
 class ImportCustomer implements ToModel, WithHeadingRow
 {   
+<<<<<<< HEAD
 
+=======
+>>>>>>> 38446753bfd22318878ec8b537b45509fd6415f7
 
     /**
     * @param array $row
