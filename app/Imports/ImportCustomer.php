@@ -9,13 +9,6 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 class ImportCustomer implements ToModel, WithHeadingRow
 {   
-    protected $unique_code;
-
-    public function __construct($code)
-    {
-        $this->unique_code = $code;
-    }
-
 
     /**
     * @param array $row
@@ -28,7 +21,7 @@ class ImportCustomer implements ToModel, WithHeadingRow
             'name' => $row['name'],
             'address' => $row['address'],
             'phone_number' => $row['phone'],
-            'Referral_code' => $this->unique_code,
+            'Referral_code' => Str::random(8),
             'username' => $row['username']
         ]);
     }
