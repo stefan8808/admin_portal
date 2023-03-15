@@ -15,8 +15,7 @@ class CustomerController extends Controller
 
     public function import(){
         try{
-            $code = Str::random(8);
-            Excel::import(new ImportCustomer($code),request()->file('file'));
+            Excel::import(new ImportCustomer(),request()->file('file'));
             return back();
         }catch(\Illuminate\Database\QueryException $e){
             return redirect()->back()->withErrors(['e'=>'Errors']);
@@ -24,7 +23,7 @@ class CustomerController extends Controller
     }
 
     public function index(){
-        $customer = Customer::all();
+        $customer = Customer::paginate(10);
         return view('Home',compact('customer'));
     }
 

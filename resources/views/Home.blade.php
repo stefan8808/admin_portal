@@ -38,6 +38,11 @@
     @endforeach
   </tbody>
 </table>
+<div class="d-flex justify-content-center">
+  <ul class="pagination">
+    {{ $customer->links() }}  
+  </ul>
+</div>
 @endif
 
 <script type="text/javascript">

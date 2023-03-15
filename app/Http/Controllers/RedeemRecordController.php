@@ -16,7 +16,7 @@ class RedeemRecordController extends Controller
      */
     public function index()
     {
-        $record = RedeemRecord::all();
+        $record = RedeemRecord::paginate(10);
         return view('recrods',compact('record'));
     }
 

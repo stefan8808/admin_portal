@@ -6,15 +6,10 @@ use App\Models\Customer;
 use GuzzleHttp\Promise\Create;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
+use Illuminate\Support\Str;
 
 class ImportCustomer implements ToModel, WithHeadingRow
 {   
-    protected $unique_code;
-
-    public function __construct($code)
-    {
-        $this->unique_code = $code;
-    }
 
 
     /**
@@ -28,7 +23,7 @@ class ImportCustomer implements ToModel, WithHeadingRow
             'name' => $row['name'],
             'address' => $row['address'],
             'phone_number' => $row['phone'],
-            'Referral_code' => $this->unique_code,
+            'Referral_code' => Str::random(8),
             'username' => $row['username']
         ]);
     }
